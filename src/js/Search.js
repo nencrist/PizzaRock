@@ -2,12 +2,12 @@ class Search{
 
     constructor(){
         
-        this.homeScreen = loadImage("./src/images/home.png");
+        this.searchScreen1 = loadImage("./src/images/searchScreen1.png");
 
     }
 
-    drawSearchScreen(){
-        image(this.homeScreen,0,0);
+    drawSearchScreen1(){
+        image(this.searchScreen1,0,0,375,812);
         
      
     }

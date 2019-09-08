@@ -2,7 +2,7 @@ class SingUp{
 
     constructor(){
 
-        this.registerScreen= loadImage("./src/images/register.png");
+        this.registerScreen = loadImage("./src/images/register.png");
 
     }
 

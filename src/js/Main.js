@@ -23,7 +23,7 @@ function setup(){
 
 function draw(){
     background(255);
-    text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+    
     switch(screen){
         case "login": 
             loginScreen.drawLoginScreen();
@@ -31,9 +31,11 @@ function draw(){
                 fill (0);
                 line (138,683,235,683);
             }
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "signUp":
             registerScreen.drawRegisterScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "search":
                searchScreen.drawSearchScreen();
@@ -43,24 +45,33 @@ function draw(){
         break;
 
     }
-    
+
+  
     
 }
 
  function mouseClicked(){
-    if(mouseX>100&mouseX<250&mouseY>500&mouseY<540){
+    if(screen==="login"&&mouseX>100&&mouseX<250&&mouseY>500&&mouseY<540){
         console.log("holas")
         screen = "home";
     }
 
-    if(mouseX>138&mouseX<235&mouseY>670&mouseY<680){
+    if(screen==="login"&mouseX>138&&mouseX<235&&mouseY>670&&mouseY<680){
         console.log("register")
         screen = "signUp";
     }
+
+    if(screen==="signUp"&mouseX>125&mouseX<250&mouseY>680&mouseY<705){
+        console.log("register")
+        screen = "home";
+    }
+
+
+    
 }
 
 function mouseMoved(){
-    if(screen == "login" && mouseX>138&mouseX<235&mouseY>670&mouseY<680){
+    if(screen === "login" && mouseX>138&mouseX<235&mouseY>670&mouseY<680){
         drawSignUpLine = true;
     
     }else{
@@ -77,6 +88,7 @@ function keyPressed() {
     }
 }
 function mousePressed() {
-   loginScreen.focusInputs(mouseX,mouseY);
+  if(screen==="login"){ loginScreen.focusInputs(mouseX,mouseY);
+}
 }
 

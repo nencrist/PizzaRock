@@ -38,7 +38,8 @@ class Login {
   //  }
 
   focusInputs(mouseX,mouseY) {
-    for (let i = 0; i < arrayInputs.length; i++) {
+   
+   /* for (let i = 0; i < arrayInputs.length; i++) {
 
         //console.log("1",mouseX >= arrayInputs[i].getPosX() && mouseX <= arrayInputs[i].getPosX() + 200);
        // console.log("2",mouseY >= arrayInputs[i].getPosY() && mouseY <= arrayInputs[i].getPosY() + 30);
@@ -48,12 +49,36 @@ class Login {
             && mouseY >= arrayInputs[i].getPosY() && mouseY <= arrayInputs[i].getPosY() + 30) {
             arrayInputs[i].setFocus(true);
             console.log(arrayInputs[i]);
-
+            
         } else {
             arrayInputs[i].setFocus(false);
             console.log(arrayInputs[i]);
         }
+    }*/
+// primer input
+    if (mouseX >= 90 && mouseX <= 290
+    && 550 && mouseY <= 580 &&mouseY>550 ) {
+    arrayInputs[0].setFocus(true);
+    console.log(arrayInputs[0]);
+  
     }
+  else{
+    arrayInputs[0].setFocus(false);
+  }
+  //segundo input
+  if (mouseX >= 90 && mouseX <= 290
+    && 550 && mouseY <= 630 &&mouseY>600 ) {
+    arrayInputs[1].setFocus(true);
+    console.log(arrayInputs[1]);
+  
+    }
+  else{
+    arrayInputs[1].setFocus(false);
+  }
+
+
+
+
 }
 
 writeTextInput(key) {

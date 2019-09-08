@@ -1,4 +1,4 @@
-
+let screen;
 let loginScreen;
 let homeScreen;
 let goHome;
@@ -6,34 +6,43 @@ let goS
 //let searchScreen
 let goR;
 let registerScreen;
+let drawSignUpLine;
+let searchScreen;
+
 
 function setup(){
     createCanvas (375,812);
+    screen = "login";
     loginScreen = new Login();
     homeScreen = new Home();
-    //searchScreen= new Search();
+    searchScreen= new Search();
     registerScreen= new SingUp();
+    
+
 }
 
 function draw(){
     background(255);
-    loginScreen.drawLoginScreen();
+    text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+    switch(screen){
+        case "login": 
+            loginScreen.drawLoginScreen();
+            if(drawSignUpLine){
+                fill (0);
+                line (138,683,235,683);
+            }
+        break;
+        case "signUp":
+            registerScreen.drawRegisterScreen();
+        break;
+        case "search":
+               searchScreen.drawSearchScreen();
+        break;
+        case "home":
+            homeScreen.drawHomeScreen();
+        break;
 
-    if(goR==true){
-
-        registerScreen.drawRegisterScreen();
-     }
-   
-   
-    if(goHome==true){
-
-       homeScreen.drawHomeScreen();
     }
-    
-    
-
-
-    text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY )
     
     
 }
@@ -41,12 +50,33 @@ function draw(){
  function mouseClicked(){
     if(mouseX>100&mouseX<250&mouseY>500&mouseY<540){
         console.log("holas")
-        goHome=true;
+        screen = "home";
     }
 
     if(mouseX>138&mouseX<235&mouseY>670&mouseY<680){
         console.log("register")
-        goR=true;
+        screen = "signUp";
     }
+}
+
+function mouseMoved(){
+    if(screen == "login" && mouseX>138&mouseX<235&mouseY>670&mouseY<680){
+        drawSignUpLine = true;
+    
+    }else{
+        drawSignUpLine = false;
+    }
+
+}
+function keyPressed() {
+    if (key != "Backspace") {
+       loginScreen.writeTextInput(key)
+        
+    } else {
+        loginScreen.eraseTextInput();
+    }
+}
+function mousePressed() {
+   loginScreen.focusInputs(mouseX,mouseY);
 }
 

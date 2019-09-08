@@ -2,7 +2,7 @@ class Home{
 
     constructor(){
 
-        this.homeScreen = loadImage("./src/images/search.png");
+        this.homeScreen = loadImage("./src/images/home.png");
 
     }
 

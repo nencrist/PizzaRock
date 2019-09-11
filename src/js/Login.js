@@ -5,7 +5,7 @@ let incrementPosY = 0;
 class Login {
     
     constructor (){
-        this. loginScreen=loadImage("./src/images/login.png");
+        this. loginScreen=loadImage("./src/images/loginScreen.png");
         //inputs
         arrayInputs = [2];
        sizeArray = 2;

@@ -14,7 +14,7 @@ class Input {
             stroke(0);
         }
         fill(255)
-        rect(this.posX,this.posY, 200, 30);
+        rect(this.posX,this.posY, 200, 30, 10);
         fill(0);
         textSize(16);
         text(this.text, this.posX + 10, this.posY + 20);

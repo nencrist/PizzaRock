@@ -1,7 +1,7 @@
 //screen variables
 let screen, loginScreen, homeScreen, searchScreen1, registerScreen, menuScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen;
 //other variables
-let drawSignUpLine;
+let drawSignUpLine, drawForgotMyPassWordLine;
 
 function setup(){
     createCanvas (375,812);
@@ -32,7 +32,11 @@ function draw(){
             loginScreen.drawLoginScreen();
             if(drawSignUpLine){
                 fill (0);
-                line (138,683,235,683);
+                line (150,718,222,718);
+            }
+            if(drawForgotMyPassWordLine){
+                fill(0);
+                line (124,800,247,800);
             }
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
@@ -61,6 +65,7 @@ function draw(){
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "chiPizza":
             chiPizzaScreen.drawChiPizzaScreen();
@@ -81,46 +86,36 @@ function draw(){
  function mouseClicked(){
     // mouseClicked interactions on login screen 
     if(screen==="login"&&mouseX>100&&mouseX<250&&mouseY>500&&mouseY<540){
-        console.log("holas")
         screen = "home";
     }
 
     if(screen==="login"&mouseX>138&&mouseX<235&&mouseY>670&&mouseY<680){
-        console.log("register")
         screen = "signUp";
     }
     //mouseClicked interactions on signUp screen
     if(screen==="signUp"&mouseX>125&mouseX<250&mouseY>680&mouseY<705){
-        console.log("register")
         screen = "home";
     }
     // mouseClicked interactions on home screen
     if(screen === "home" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        console.log("register")
         screen = "menu";
     }
     if(screen === "home" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        console.log("register")
         screen = "favorites";
     }
     if(screen === "home" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        console.log("register")
         screen = "search";
     }
     if(screen === "home" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        console.log("register")
         screen = "recents";
     }
     if(screen === "home" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        console.log("register")
         screen = "tuCarrito";
     }
     if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 97 && mouseY < 254){
-        console.log("register")
         screen = "haPizza";
     }
     if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 261 && mouseY < 418){
-        console.log("register")
         screen = "chiPizza";
     }
     /*if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 430 && mouseY < 586){
@@ -128,82 +123,136 @@ function draw(){
         screen = "vegePizza";
     }*/
     if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 597 && mouseY < 740){
-        console.log("register")
         screen = "euPizza";
     }
     // mouseClicked interactions on favorites screen
     if(screen === "favorites" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        console.log("register")
         screen = "menu";
     }
     if(screen === "favorites" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        console.log("register")
         screen = "tuCarrito";
     }
     if(screen === "favorites" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
-        console.log("register")
         screen = "home";
     }
     if(screen === "favorites" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        console.log("register")
         screen = "search";
     }
     if(screen === "favorites" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        console.log("register")
         screen = "recents";
     }
     // mouseClicked interactions on recents screen
     if(screen === "recents" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        console.log("register")
         screen = "menu";
     }
     if(screen === "recents" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        console.log("register")
         screen = "tuCarrito";
     }
     if(screen === "recents" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        console.log("register")
         screen = "favorites";
     }
     if(screen === "recents" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        console.log("register")
         screen = "search";
     }
     if(screen === "recents" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
-        console.log("register")
         screen = "home";
     }
     //mouseClicked interactions on search screen
     if(screen === "search" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        console.log("register")
         screen = "menu";
     }
     if(screen === "search" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        console.log("register")
         screen = "tuCarrito";
     }
     if(screen === "search" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        console.log("register")
         screen = "favorites";
     }
     if(screen === "search" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
-        console.log("register")
         screen = "home";
     }
     if(screen === "search" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        console.log("register")
         screen = "recents";
     }
-
+    //mouseClicked interaction on haPizza screen
+    if(screen === "haPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "haPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "haPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "haPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "haPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    //mouseClicked interactions on chiPizzaScreen
+    if(screen === "chiPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "chiPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "chiPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "chiPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "chiPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    //mouseClicked interactions on vegePizzaScreen
+    if(screen === "vegePizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "vegePizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "vegePizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "vegePizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "vegePizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    //mouseClicked interactions on euPizzaScreen
+    if(screen === "euPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "euPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "euPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "euPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "euPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
     
 }
 
 function mouseMoved(){
-    if(screen === "login" && mouseX>138&mouseX<235&mouseY>670&mouseY<680){
+    if(screen === "login" && mouseX > 150 && mouseX < 222 && mouseY > 705 && mouseY < 715){
         drawSignUpLine = true;
     
     }else{
         drawSignUpLine = false;
+    }
+
+    if(screen === "login" && mouseX > 124 && mouseX < 247 && mouseY > 790 && mouseY < 796){
+        drawForgotMyPassWordLine = true;
+    
+    }else{
+        drawForgotMyPassWordLine = false;
     }
 
 }
@@ -222,7 +271,6 @@ function mousePressed() {
 }
 function mouseReleased(){
       if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 430 && mouseY < 586){
-        console.log("register")
         screen = "vegePizza";
     }
 }

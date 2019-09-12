@@ -2,6 +2,8 @@
 let screen, loginScreen, homeScreen, searchScreen1, registerScreen, menuScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen;
 //other variables
 let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse;
+//on off variables
+let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
 
 function setup(){
     createCanvas (375,812);
@@ -10,7 +12,13 @@ function setup(){
     homeScreen = new Home();
     searchScreen1 = new Search();
     registerScreen = new SingUp();
-    menuScreen = new Menu();
+    homeMenuScreen = new HomeMenu();
+    recentsMenuScreen = new RecentsMenu();
+    favoritesMenuScreen = new FavoritesMenu();
+    searchMenuScreen = new SearchMenu();
+    pizzaMenuScreen = new PizzaMenu();
+    checkOutMenuScreen = new CheckOutMenu();
+    tuCarritoMenuScreen = new TuCarritoMenu();
     favoritesScreen = new Favorites();
     recentsScreen = new Recents();
     tuCarritoScreen = new TuCarrito();
@@ -18,9 +26,6 @@ function setup(){
     chiPizzaScreen = new ChiPizza();
     vegePizzaScreen = new VegePizza();
     euPizzaScreen = new EuPizza();
-
-
-    
 
 }
 
@@ -49,12 +54,16 @@ function draw(){
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
         break;
+        case "searchMenu":
+            searchMenuScreen.drawSearchMenuScreen();
+        break;
         case "home":
             homeScreen.drawHomeScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
-        case "menu":
-            menuScreen.drawMenuScreen();
+        case "homeMenu":
+            homeMenuScreen.drawHomeMenuScreen();
+            textSize(10);
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
         break;
@@ -63,15 +72,24 @@ function draw(){
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
         break;
+        case "favoritesMenu":
+            favoritesMenuScreen.drawFavoritesMenuScreen();
+        break;
         case "recents":
             recentsScreen.drawRecentsScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
         break;
+        case "recentsMenu":
+            recentsMenuScreen.drawRecentsMenuScreen();
+        break;
         case "tuCarrito":
             tuCarritoScreen.drawTuCarritoScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
+        break;
+        case "tuCarritoMenu":
+            tuCarritoMenuScreen.drawTuCarritoMenuScreen();
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
@@ -86,15 +104,27 @@ function draw(){
                 noStroke ();
                 ellipse (268,377,8,8);
             }
+            if(actHaPizzaMenu){
+                pizzaMenuScreen.drawPizzaMenuScreen();
+            }
         break;
         case "chiPizza":
             chiPizzaScreen.drawChiPizzaScreen();
+            if(actChiPizzaMenu){
+                pizzaMenuScreen.drawPizzaMenuScreen();
+            }
         break;
         case "vegePizza":
             vegePizzaScreen.drawVegePizzaScreen();
+            if(actVegePizzaMenu){
+                pizzaMenuScreen.drawPizzaMenuScreen();
+            }
         break;
         case "euPizza":
             euPizzaScreen.drawEuPizzaScreen();
+            if(actEuPizzaMenu){
+                pizzaMenuScreen.drawPizzaMenuScreen();
+            }
         break;
 
     }
@@ -118,7 +148,7 @@ function draw(){
     }
     // mouseClicked interactions on home screen
     if(screen === "home" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "menu";
+        screen = "homeMenu";
     }
     if(screen === "home" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
         screen = "favorites";
@@ -142,10 +172,14 @@ function draw(){
         console.log("register")
         screen = "vegePizza";
     }*/
+    //mouseClicked interactions on home menu screen
+    if(screen === "homeMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "home";
+    }
     
     // mouseClicked interactions on favorites screen
     if(screen === "favorites" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "menu";
+        screen = "favoritesMenu";
     }
     if(screen === "favorites" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
         screen = "tuCarrito";
@@ -159,9 +193,13 @@ function draw(){
     if(screen === "favorites" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
         screen = "recents";
     }
+    // mouseClicked interactions on favorites menu Screen
+    if(screen === "favoritesMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "favorites";
+    }
     // mouseClicked interactions on recents screen
     if(screen === "recents" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "menu";
+        screen = "recentsMenu";
     }
     if(screen === "recents" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
         screen = "tuCarrito";
@@ -175,9 +213,13 @@ function draw(){
     if(screen === "recents" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
         screen = "home";
     }
+    //mouseClicked interactions on recents menu screen
+    if(screen === "recentsMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "recents";
+    }
     //mouseClicked interactions on search screen
     if(screen === "search" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "menu";
+        screen = "searchMenu";
     }
     if(screen === "search" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
         screen = "tuCarrito";
@@ -190,6 +232,10 @@ function draw(){
     }
     if(screen === "search" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
         screen = "recents";
+    }
+    //mouseClicked interactions on search menu screen
+    if(screen === "searchMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "search";
     }
     //mouseClicked interaction on haPizza screen
     if(screen === "haPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
@@ -213,6 +259,9 @@ function draw(){
     if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 374 && mouseY < 386){
         drawCheAddEllipse = true;
     }
+    if(screen === "haPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actHaPizzaMenu = true;
+    }
     //mouseClicked interactions on chiPizzaScreen
     if(screen === "chiPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
         screen = "favorites";
@@ -228,6 +277,9 @@ function draw(){
     }
     if(screen === "chiPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
         screen = "home";
+    }
+    if(screen === "chiPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actChiPizzaMenu = true;
     }
     //mouseClicked interactions on vegePizzaScreen
     if(screen === "vegePizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
@@ -245,6 +297,9 @@ function draw(){
     if(screen === "vegePizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
         screen = "home";
     }
+    if(screen === "vegePizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actVegePizzaMenu = true;
+    }
     //mouseClicked interactions on euPizzaScreen
     if(screen === "euPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
         screen = "favorites";
@@ -261,10 +316,24 @@ function draw(){
     if(screen === "euPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
         screen = "home";
     }
-    //mouseClicked interactions on tuCarritoScreen
-    if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "menu";
+    if(screen === "euPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actEuPizzaMenu = true;
     }
+    //mouseClicked interactions on PizzaMenu screens
+    if(screen === "haPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        actHaPizzaMenu = false;
+    }
+    if(screen === "chiPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        actChiPizzaMenu = false;
+    }
+    if(screen === "vegePizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        actVegePizzaMenu = false;
+    }
+    if(screen === "euPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        actEuPizzaMenu = false;
+    }
+    
+    //mouseClicked interactions on tuCarritoScreen
     if(screen === "tuCarrito" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
         screen = "favorites";
     }
@@ -276,6 +345,13 @@ function draw(){
     }
     if(screen === "tuCarrito" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
         screen = "home";
+    }
+    if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        screen = "tuCarritoMenu";
+    }
+    //mouseClicked interactions on tuCarrito menu screen
+    if(screen === "tuCarritoMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "tuCarrito";
     }
     
 }

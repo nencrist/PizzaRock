@@ -1,7 +1,7 @@
 //screen variables
 let screen, loginScreen, homeScreen, searchScreen1, registerScreen, menuScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen;
 //other variables
-let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse;
+let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse, drawBoAddEllipse, drawCocaAddEllipse, drawTeLemonAddEllipse, drawTePeaAddEllipse;
 //on off variables
 let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
 
@@ -102,8 +102,39 @@ function draw(){
             if(drawCheAddEllipse){
                 fill(1,198,85);
                 noStroke ();
-                ellipse (268,377,8,8);
+                ellipse (268,379,8,8);
             }
+            if(drawBaAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,399,8,8);
+            }
+            if(drawCoAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,418,8,8);
+            }
+            if( drawBoAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,466,8,8);
+            }
+            if( drawCocaAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,485,8,8);
+            }
+            if( drawTeLemonAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,505,8,8);
+            }
+            if( drawTePeaAddEllipse){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,525,8,8);
+            }
+
             if(actHaPizzaMenu){
                 pizzaMenuScreen.drawPizzaMenuScreen();
             }
@@ -262,6 +293,25 @@ function draw(){
     if(screen === "haPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         actHaPizzaMenu = true;
     }
+    if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 392 && mouseY < 406){
+        drawBaAddEllipse = true;
+    }
+        if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 415 && mouseY < 423){
+            drawCoAddEllipse = true;
+        }
+        if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 461 && mouseY < 471){
+            drawBoAddEllipse = true;
+        }
+        if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 477 && mouseY < 489){
+            drawCocaAddEllipse = true;
+        }
+        if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 498 && mouseY < 509){
+            drawTeLemonAddEllipse = true;
+        }
+        if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 520 && mouseY < 530){
+            drawTePeaAddEllipse = true;
+        }
+    }
     //mouseClicked interactions on chiPizzaScreen
     if(screen === "chiPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
         screen = "favorites";
@@ -354,7 +404,7 @@ function draw(){
         screen = "tuCarrito";
     }
     
-}
+
 
 function mouseMoved(){
     if(screen === "login" && mouseX > 150 && mouseX < 222 && mouseY > 705 && mouseY < 715){

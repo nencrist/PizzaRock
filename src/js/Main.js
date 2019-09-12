@@ -46,6 +46,8 @@ function draw(){
         break;
         case "search":
             searchScreen1.drawSearchScreen1();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+
         break;
         case "home":
             homeScreen.drawHomeScreen();
@@ -53,15 +55,23 @@ function draw(){
         break;
         case "menu":
             menuScreen.drawMenuScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+
         break;
         case "favorites":
             favoritesScreen.drawFavoritesScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+
         break;
         case "recents":
             recentsScreen.drawRecentsScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+
         break;
         case "tuCarrito":
             tuCarritoScreen.drawTuCarritoScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
@@ -235,6 +245,22 @@ function draw(){
         screen = "tuCarrito";
     }
     if(screen === "euPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    //mouseClicked interactions on tuCarritoScreen
+    if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        screen = "menu";
+    }
+    if(screen === "tuCarrito" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "tuCarrito" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "tuCarrito" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "tuCarrito" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
         screen = "home";
     }
     

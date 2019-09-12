@@ -7,7 +7,7 @@ let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
 
 function setup(){
     createCanvas (375,812);
-    screen = "login";
+    screen = "haPizza";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -286,30 +286,40 @@ function draw(){
     }
     if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 355 && mouseY < 367){
         drawChiAddEllipse = true;
+        haPizzaScreen.total+=3500;
+        
     }
     if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 374 && mouseY < 386){
         drawCheAddEllipse = true;
+        haPizzaScreen.total+=4200;
     }
     if(screen === "haPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         actHaPizzaMenu = true;
+        
     }
     if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 392 && mouseY < 406){
         drawBaAddEllipse = true;
+        haPizzaScreen.total+=5000;
     }
         if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 415 && mouseY < 423){
             drawCoAddEllipse = true;
+            haPizzaScreen.total+=3000;
         }
         if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 461 && mouseY < 471){
             drawBoAddEllipse = true;
+            haPizzaScreen.total+=5400;
         }
         if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 477 && mouseY < 489){
             drawCocaAddEllipse = true;
+            haPizzaScreen.total+=5400;
         }
         if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 498 && mouseY < 509){
             drawTeLemonAddEllipse = true;
+            haPizzaScreen.total+=5400;
         }
         if(screen === "haPizza" && mouseX > 261 && mouseX < 273 && mouseY > 520 && mouseY < 530){
             drawTePeaAddEllipse = true;
+            haPizzaScreen.total+=5400;
         }
     }
     //mouseClicked interactions on chiPizzaScreen

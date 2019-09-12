@@ -21,7 +21,7 @@ class Login {
     drawLoginScreen(){
       
         image(this.loginScreen,0,0,375,812);
-        rect(100,500,150,40);
+        
         //inputs
         for (let i = 0; i < arrayInputs.length; i++) {
           arrayInputs[i].paint();
@@ -57,7 +57,7 @@ class Login {
     }*/
 // primer input
     if (mouseX >= 90 && mouseX <= 290
-    && 550 && mouseY <= 580 &&mouseY>550 ) {
+    && mouseY <= 580 &&mouseY>550 ) {
     arrayInputs[0].setFocus(true);
     console.log(arrayInputs[0]);
   
@@ -67,7 +67,7 @@ class Login {
   }
   //segundo input
   if (mouseX >= 90 && mouseX <= 290
-    && 550 && mouseY <= 630 &&mouseY>600 ) {
+     && mouseY <= 630 &&mouseY>600 ) {
     arrayInputs[1].setFocus(true);
     console.log(arrayInputs[1]);
   

@@ -105,11 +105,11 @@ function draw(){
 
  function mouseClicked(){
     // mouseClicked interactions on login screen 
-    if(screen==="login"&&mouseX>100&&mouseX<250&&mouseY>500&&mouseY<540){
+    if(screen==="login"&&mouseX>128&&mouseX<245&&mouseY>671&&mouseY<700){
         screen = "home";
     }
 
-    if(screen==="login"&mouseX>138&&mouseX<235&&mouseY>670&&mouseY<680){
+    if(screen==="login"&mouseX>152&&mouseX<222&&mouseY>707&&mouseY<716){
         screen = "signUp";
     }
     //mouseClicked interactions on signUp screen
@@ -142,9 +142,7 @@ function draw(){
         console.log("register")
         screen = "vegePizza";
     }*/
-    if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 597 && mouseY < 740){
-        screen = "euPizza";
-    }
+    
     // mouseClicked interactions on favorites screen
     if(screen === "favorites" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         screen = "menu";
@@ -299,21 +297,61 @@ function mouseMoved(){
 
 }
 function keyPressed() {
+    //login
     if (key != "Backspace") {
        loginScreen.writeTextInput(key)
         
     } else {
         loginScreen.eraseTextInput();
     }
+
+    //register
+    if (key != "Backspace") {
+        registerScreen.writeTextInput(key)
+         
+     } else {
+         registerScreen.eraseTextInput();
+     }
+
+     //search
+     if (key != "Backspace") {
+        searchScreen1.writeTextInput(key)
+         
+     } else {
+         searchScreen1.eraseTextInput();
+     }
+
+
+
+
 }
 function mousePressed() {
+
+    //login
   if(screen==="login"){ 
       loginScreen.focusInputs(mouseX,mouseY);
 }
+//register
+if(screen==="signUp"){ 
+    registerScreen.focusInputs(mouseX,mouseY);
+}
+
+//search
+if(screen==="search"){ 
+    searchScreen1.focusInputs(mouseX,mouseY);
+}
+
 }
 function mouseReleased(){
+
+    //mouseClicked interccion on homeScreen 
       if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 430 && mouseY < 586){
         screen = "vegePizza";
     }
+    if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 597 && mouseY < 740){
+        screen = "euPizza";
+    }
+
+    
 }
 

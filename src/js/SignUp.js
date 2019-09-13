@@ -18,6 +18,11 @@ class SingUp{
 
     drawRegisterScreen(){
         image(this.registerScreen,0,0,375,812);
+        text("Nombre de usuario",100,395);
+        text("Contraseña",100,445);
+        text("Confirmar contraseña",100,495);
+        text("Correo electronico",100,545);
+        text("Dirección de entrega",100,595);
 
 //inputs
 
@@ -100,6 +105,17 @@ class SingUp{
                 arrayInputsR[i].setText(arrayInputsR[i].getText().substring(0, indice));
             }
         }
+      
+      }
+
+
+      getUserName(){
+        return arrayInputsR[0].getText();
+      }
+      
+      
+      getUserPassword(){
+        return arrayInputsR[1].getText()
       
       }
 

@@ -3,12 +3,17 @@ let screen, loginScreen, homeScreen, searchScreen1, registerScreen, favoritesScr
 let homeMenuScreen, searchMenuScreen, favoritesMenuScreen, recentsMenuScreen, tuCarritoMenuScreen, pizzaMenuScreen, checkOutMenuScreen;
 //other variables
 let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse, drawBoAddEllipse, drawCocaAddEllipse, drawTeLemonAddEllipse, drawTePeaAddEllipse;
+let drawChiAddEllipse1, drawCheAddEllipse1, drawBaAddEllipse1, drawCoAddEllipse1, drawBoAddEllipse1, drawCocaAddEllipse1, drawTeLemonAddEllipse1, drawTePeaAddEllipse1;
+let drawChiAddEllipse2, drawCheAddEllipse2, drawBaAddEllipse2, drawCoAddEllipse2, drawBoAddEllipse2, drawCocaAddEllipse2, drawTeLemonAddEllipse2, drawTePeaAddEllipse2;
+let drawChiAddEllipse3, drawCheAddEllipse3, drawBaAddEllipse3, drawCoAddEllipse3, drawBoAddEllipse3, drawCocaAddEllipse3, drawTeLemonAddEllipse3, drawTePeaAddEllipse3;
 //on off variables
 let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
+//user variables
+let userArrays = [];
 
 function setup(){
     createCanvas (375,812);
-    screen = "home";
+    screen = "login";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -33,6 +38,8 @@ function setup(){
     addAdressScreen = new AddAdress();
     cancelOrderScreen = new CancelOrder();
     cardScreen = new CardScreen();
+    //User Array
+    userArrays[0]= new User("nicolas","123");
 
 }
 
@@ -55,6 +62,7 @@ function draw(){
         case "signUp":
             registerScreen.drawRegisterScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            console.log(userArrays.length)
         break;
         case "search":
             searchScreen1.drawSearchScreen1();
@@ -178,17 +186,144 @@ function draw(){
             if(actChiPizzaMenu){
                 pizzaMenuScreen.drawPizzaMenuScreen();
             }
+            //aqui
+            // addition points of the chicken screen
+            if(drawChiAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,378,8,8);
+            }
+            if(drawCheAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,396,8,8);
+            }
+            if(drawBaAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,416,8,8);
+            }
+            if(drawCoAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,435,8,8);
+            }
+            if( drawBoAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,483,8,8);
+            }
+            if( drawCocaAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,502,8,8);
+            }
+            if( drawTeLemonAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,522,8,8);
+            }
+            if( drawTePeaAddEllipse1){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,543,8,8);
+            }
         break;
         case "vegePizza":
             vegePizzaScreen.drawVegePizzaScreen();
             if(actVegePizzaMenu){
                 pizzaMenuScreen.drawPizzaMenuScreen();
             }
+
+            //aqui
+            // addition points of veg pizza
+            if(drawChiAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,378,8,8);
+            }
+            if(drawCheAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,396,8,8);
+            }
+            if(drawBaAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,416,8,8);
+            }
+            if(drawCoAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,435,8,8);
+            }
+            if( drawBoAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,483,8,8);
+            }
+            if( drawCocaAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,502,8,8);
+            }
+            if( drawTeLemonAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,522,8,8);
+            }
+            if( drawTePeaAddEllipse2){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,543,8,8);
+            }
         break;
         case "euPizza":
             euPizzaScreen.drawEuPizzaScreen();
             if(actEuPizzaMenu){
                 pizzaMenuScreen.drawPizzaMenuScreen();
+            }
+            //aqui
+             // addition points of the european pizza
+             if(drawChiAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,378,8,8);
+            }
+            if(drawCheAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,396,8,8);
+            }
+            if(drawBaAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,416,8,8);
+            }
+            if(drawCoAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,435,8,8);
+            }
+            if( drawBoAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,483,8,8);
+            }
+            if( drawCocaAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,502,8,8);
+            }
+            if( drawTeLemonAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,522,8,8);
+            }
+            if( drawTePeaAddEllipse3){
+                fill(1,198,85);
+                noStroke ();
+                ellipse (268,543,8,8);
             }
         break;
 
@@ -201,7 +336,16 @@ function draw(){
  function mouseClicked(){
     // mouseClicked interactions on login screen 
     if(screen==="login"&&mouseX>128&&mouseX<245&&mouseY>671&&mouseY<700){
-        screen = "home";
+       
+//verification
+        for (let i = 0; i < userArrays.length; i++) {
+
+            if(loginScreen.getUserName()===userArrays[i].getUserName()&&loginScreen.getUserPassword()===userArrays[i].getPassword()){
+                screen = "home";
+            }
+        }
+        console.log(registerScreen.getUserName())
+        console.log(loginScreen.getUserName())
     }
 
     if(screen==="login"&mouseX>152&&mouseX<222&&mouseY>707&&mouseY<716){
@@ -209,7 +353,17 @@ function draw(){
     }
     //mouseClicked interactions on signUp screen
     if(screen==="signUp"&mouseX>125&mouseX<250&mouseY>680&mouseY<705){
-        screen = "home";
+
+        //console.log(registerScreen.getUserName())
+        //console.log(registerScreen.getUserPassword())
+       
+        //add new user an password from register screen
+        userArrays[1]= new User(registerScreen.getUserName(),registerScreen.getUserPassword());
+        
+
+       // userArrays.push("hola","123");
+
+        screen = "login";
     }
     // mouseClicked interactions on home screen
     if(screen === "home" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
@@ -351,6 +505,107 @@ function draw(){
             drawTePeaAddEllipse = true;
             haPizzaScreen.total+=5400;
         }
+        //aqui
+        //mouseClicked interaction on chiPizza screen
+        if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 371 && mouseY < 383){
+            drawChiAddEllipse1 = true; 
+            chiPizzaScreen.total+=3500;
+        }
+        if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 390 && mouseY < 400){
+            drawCheAddEllipse1 = true;
+            chiPizzaScreen.total+=4200;
+        }
+        if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 410 && mouseY < 420){
+            drawBaAddEllipse1 = true;
+            chiPizzaScreen.total+=5000;
+        }
+            if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 430 && mouseY < 440){
+                drawCoAddEllipse1 = true;
+                chiPizzaScreen.total+=3000;
+            }
+            if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 478 && mouseY < 489){
+                drawBoAddEllipse1 = true;
+                chiPizzaScreen.total+=5400;
+            }
+            if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 497 && mouseY < 508){
+                drawCocaAddEllipse1 = true;
+                chiPizzaScreen.total+=5400;
+            }
+            if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 516 && mouseY < 528){
+                drawTeLemonAddEllipse1 = true;
+                chiPizzaScreen.total+=5400;
+            }
+            if(screen === "chiPizza" && mouseX > 261 && mouseX < 273 && mouseY > 537 && mouseY < 549){
+                drawTePeaAddEllipse1 = true;
+                chiPizzaScreen.total+=5400;
+            }
+            //mouseClicked interaction on vegePizza screen
+        if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 371 && mouseY < 383){
+            drawChiAddEllipse2 = true; 
+            vegePizzaScreen.total+=3500;
+        }
+        if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 390 && mouseY < 400){
+            drawCheAddEllipse2 = true;
+            vegePizzaScreen.total+=4200;
+            
+        }
+        if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 410 && mouseY < 420){
+            drawBaAddEllipse2 = true;
+            vegePizzaScreen.total+=5000;
+        }
+            if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 430 && mouseY < 440){
+                drawCoAddEllipse2 = true;
+                vegePizzaScreen.total+=3000;
+            }
+            if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 478 && mouseY < 489){
+                drawBoAddEllipse2 = true;
+                vegePizzaScreen.total+=5400;
+            }
+            if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 497 && mouseY < 508){
+                drawCocaAddEllipse2 = true;
+                vegePizzaScreen.total+=5400;
+            }
+            if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 516 && mouseY < 528){
+                drawTeLemonAddEllipse2 = true;
+                vegePizzaScreen.total+=5400;
+            }
+            if(screen === "vegePizza" && mouseX > 261 && mouseX < 273 && mouseY > 537 && mouseY < 549){
+                drawTePeaAddEllipse2 = true;
+                vegePizzaScreen.total+=5400;
+            }
+            //mouseClicked interaction on euPizza screen
+        if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 371 && mouseY < 383){
+            drawChiAddEllipse3 = true; 
+            euPizzaScreen.total+=3500;
+        }
+        if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 390 && mouseY < 400){
+            drawCheAddEllipse3 = true;
+            euPizzaScreen.total+=4200;
+        }
+        if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 410 && mouseY < 420){
+            drawBaAddEllipse3 = true;
+            euPizzaScreen.total+=5000;
+        }
+            if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 430 && mouseY < 440){
+                drawCoAddEllipse3 = true;
+                euPizzaScreen.total+=3000;
+            }
+            if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 478 && mouseY < 489){
+                drawBoAddEllipse3 = true;
+                euPizzaScreen.total+=5400;
+            }
+            if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 497 && mouseY < 508){
+                drawCocaAddEllipse3 = true;
+                euPizzaScreen.total+=5400;
+            }
+            if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 516 && mouseY < 528){
+                drawTeLemonAddEllipse3 = true;
+                euPizzaScreen.total+=5400;
+            }
+            if(screen === "euPizza" && mouseX > 261 && mouseX < 273 && mouseY > 537 && mouseY < 549){
+                drawTePeaAddEllipse3 = true;
+                euPizzaScreen.total+=5400;
+            }
     }
     
 function mouseMoved(){

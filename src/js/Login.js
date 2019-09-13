@@ -100,6 +100,15 @@ eraseTextInput() {
 
 }
 
+getUserName(){
+  return arrayInputs[0].getText();
+}
+
+
+getUserPassword(){
+  return arrayInputs[1].getText()
+
+}
 }
 
 

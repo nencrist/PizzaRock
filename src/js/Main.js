@@ -1,5 +1,5 @@
 //screen variables
-let screen, loginScreen, homeScreen, searchScreen1, registerScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen, checkOutScreen1, checkOutScreen2, adressScreen, addAdressScreen, cancelOrderScreen, cardScreen;
+let screen, loginScreen, homeScreen, searchScreen1, registerScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen, checkOutScreen1, checkOutScreen2, adressScreen, addAdressScreen, cancelOrderScreen, cardScreen, addCardScreen, onWayScreen;
 let homeMenuScreen, searchMenuScreen, favoritesMenuScreen, recentsMenuScreen, tuCarritoMenuScreen, pizzaMenuScreen, checkOutMenuScreen;
 //other variables
 let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse, drawBoAddEllipse, drawCocaAddEllipse, drawTeLemonAddEllipse, drawTePeaAddEllipse;
@@ -7,13 +7,15 @@ let drawChiAddEllipse1, drawCheAddEllipse1, drawBaAddEllipse1, drawCoAddEllipse1
 let drawChiAddEllipse2, drawCheAddEllipse2, drawBaAddEllipse2, drawCoAddEllipse2, drawBoAddEllipse2, drawCocaAddEllipse2, drawTeLemonAddEllipse2, drawTePeaAddEllipse2;
 let drawChiAddEllipse3, drawCheAddEllipse3, drawBaAddEllipse3, drawCoAddEllipse3, drawBoAddEllipse3, drawCocaAddEllipse3, drawTeLemonAddEllipse3, drawTePeaAddEllipse3;
 //on off variables
-let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
+let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu, actHaPizzaFa, actHaPizzaFa2, actChiPizzaFa, actChiPizzaFa2, actVegePizzaFa, actVegePizzaFa2, actEuPizzaFa, actEuPizzaFa2;
 //user variables
 let userArrays = [];
+//favorites images variables
+let haPizzaFa, chiPizzaFa,vegePizzaFa, euPizzaFa;
 
 function setup(){
-    createCanvas (375,812);
-    screen = "login";
+    createCanvas (400,812);
+    screen = "home";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -38,8 +40,14 @@ function setup(){
     addAdressScreen = new AddAdress();
     cancelOrderScreen = new CancelOrder();
     cardScreen = new CardScreen();
+    addCardScreen = new AddCardScreen();
+    onWayScreen = new OnWay();
     //User Array
     userArrays[0]= new User("nicolas","123");
+    haPizzaFa = loadImage("./src/images/haPizzaFa.png");
+    chiPizzaFa = loadImage("./src/images/chiPizzaFa.png");
+    vegePizzaFa = loadImage("./src/images/vegePizzaFa.png");
+    euPizzaFa = loadImage("./src/images/euPizzaFa.png");
 
 }
 
@@ -75,6 +83,18 @@ function draw(){
         case "home":
             homeScreen.drawHomeScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            if(actHaPizzaFa){
+            image(haPizzaFa,9,98,356,157);
+            }
+            if(actChiPizzaFa){
+            image(chiPizzaFa,9,262,356,157);
+            }
+            if(actVegePizzaFa){
+            image(vegePizzaFa,9,429,356,157);
+            }
+            if(actEuPizzaFa){
+            image(euPizzaFa,9,598,356,157);
+            }
         break;
         case "homeMenu":
             homeMenuScreen.drawHomeMenuScreen();
@@ -85,7 +105,18 @@ function draw(){
         case "favorites":
             favoritesScreen.drawFavoritesScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
-
+            if(actHaPizzaFa2){
+            image(haPizzaFa,9,98,356,157);
+            }
+            if(actChiPizzaFa2){
+            image(chiPizzaFa,9,262,356,157);
+            }
+            if(actVegePizzaFa2){
+            image(vegePizzaFa,9,429,356,157);
+            }
+            if(actEuPizzaFa2){
+            image(euPizzaFa,9,598,356,157);
+            }
         break;
         case "favoritesMenu":
             favoritesMenuScreen.drawFavoritesMenuScreen();
@@ -132,6 +163,12 @@ function draw(){
         case "cardScreen":
             cardScreen.drawCardScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "addCardScreen":
+            addCardScreen.drawAddCardScreen();
+        break;
+        case "onWay":
+            onWayScreen.drawOnWayScreen();
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
@@ -381,10 +418,10 @@ function draw(){
     if(screen === "home" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
         screen = "tuCarrito";
     }
-    if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 97 && mouseY < 254){
+    if(screen === "home" && mouseX > 10 && mouseX < 317 && mouseY > 97 && mouseY < 254){
         screen = "haPizza";
     }
-    if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 261 && mouseY < 418){
+    if(screen === "home" && mouseX > 10 && mouseX < 317 && mouseY > 261 && mouseY < 418){
         screen = "chiPizza";
     }
     //mouseClicked interactions on home menu screen
@@ -674,10 +711,10 @@ if(screen==="search"){
 function mouseReleased(){
 
     //mouseClicked interccion on homeScreen 
-      if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 430 && mouseY < 586){
+      if(screen === "home" && mouseX > 10 && mouseX < 317 && mouseY > 430 && mouseY < 586){
         screen = "vegePizza";
     }
-    if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 597 && mouseY < 740){
+    if(screen === "home" && mouseX > 10 && mouseX < 317 && mouseY > 597 && mouseY < 740){
         screen = "euPizza";
     }
     //mouseClicked interactions on tuCarritoScreen
@@ -832,12 +869,85 @@ function mouseReleased(){
     }
     //mouseClicked interactions on cancel order screen
     if(screen === "cancelOrder" && mouseX > 67 && mouseX < 153 && mouseY > 343 && mouseY < 371){
-        screen = "home";
+        screen = "tuCarrito";
     }
     if(screen === "cancelOrder" && mouseX > 208 && mouseX < 294 && mouseY > 343 && mouseY < 371){
         screen = "checkOut2";
     }
-
+    //all menu card and adress interactions
+        //home
+    if(screen === "homeMenu" && mouseX > 83 && mouseX < 145 && mouseY > 173 && mouseY < 187){
+        screen = "cardScreen";
+    }
+    if(screen === "cardScreen" && mouseX > 38 && mouseX < 334 && mouseY > 697 && mouseY < 726){
+        screen = "addCardScreen";
+    }
+    if(screen === "homeMenu" && mouseX > 75 && mouseX < 163 && mouseY > 236 && mouseY < 248){
+        screen = "adressScreen";
+    }
+    if(screen === "cardScreen" && mouseX > 26 && mouseX < 48 && mouseY > 96 && mouseY < 119){
+        screen = "homeMenu";
+    }
+    if(screen === "adressScreen" && mouseX > 340 && mouseX < 360 && mouseY > 616 && mouseY < 634){
+        screen = "homeMenu";
+    }
+        //favorites
+        if(screen === "favoritesMenu" && mouseX > 83 && mouseX < 145 && mouseY > 173 && mouseY < 187){
+            screen = "cardScreen";
+        }
+        if(screen === "favoritesMenu" && mouseX > 75 && mouseX < 163 && mouseY > 236 && mouseY < 248){
+            screen = "adressScreen";
+        }
+        if(screen === "cardScreen" && mouseX > 26 && mouseX < 48 && mouseY > 96 && mouseY < 119){
+            screen = "favoritesMenu";
+        }
+        //search
+        if(screen === "searchMenu" && mouseX > 83 && mouseX < 145 && mouseY > 173 && mouseY < 187){
+            screen = "cardScreen";
+        }
+        if(screen === "searchMenu" && mouseX > 75 && mouseX < 163 && mouseY > 236 && mouseY < 248){
+            screen = "adressScreen";
+        }
+        if(screen === "cardScreen" && mouseX > 26 && mouseX < 48 && mouseY > 96 && mouseY < 119){
+            screen = "searchMenu";
+        }
+        //recents
+        if(screen === "recentsMenu" && mouseX > 83 && mouseX < 145 && mouseY > 173 && mouseY < 187){
+            screen = "cardScreen";
+        }
+        if(screen === "recentsMenu" && mouseX > 75 && mouseX < 163 && mouseY > 236 && mouseY < 248){
+            screen = "adressScreen";
+        }
+        if(screen === "cardScreen" && mouseX > 26 && mouseX < 48 && mouseY > 96 && mouseY < 119){
+            screen = "recentsMenu";
+        }
+        //tuCarrito
+        if(screen === "tuCarritoMenu" && mouseX > 83 && mouseX < 145 && mouseY > 173 && mouseY < 187){
+            screen = "cardScreen";
+        }
+        if(screen === "tuCarritoMenu" && mouseX > 75 && mouseX < 163 && mouseY > 236 && mouseY < 248){
+            screen = "adressScreen";
+        }
+        if(screen === "cardScreen" && mouseX > 26 && mouseX < 48 && mouseY > 96 && mouseY < 119){
+            screen = "tuCarritoMenu";
+        }
+    //add to favorites interactions
+    if(screen === "home" && mouseX > 334 && mouseX < 352 && mouseY > 109 && mouseY < 126){
+        actHaPizzaFa = true;
+        actHaPizzaFa2 = true;
+    }
+    if(screen === "home" && mouseX > 334 && mouseX < 352 && mouseY > 274 && mouseY < 292){
+        actChiPizzaFa = true;
+        actChiPizzaFa2 = true;
+    }
+    if(screen === "home" && mouseX > 334 && mouseX < 352 && mouseY > 443 && mouseY < 459){
+        actVegePizzaFa = true;
+        actVegePizzaFa2 = true;
+    }
+    if(screen === "home" && mouseX > 334 && mouseX < 352 && mouseY > 611 && mouseY < 629){
+        actEuPizzaFa = true;
+        actEuPizzaFa2 = true;
+    }
     
 }
 

@@ -1,4 +1,4 @@
-//screen variables
+ //screen variables
 let screen, loginScreen, homeScreen, searchScreen1, registerScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen, checkOutScreen1, checkOutScreen2, adressScreen, addAdressScreen, cancelOrderScreen, cardScreen, addCardScreen, onWayScreen;
 let homeMenuScreen, searchMenuScreen, favoritesMenuScreen, recentsMenuScreen, tuCarritoMenuScreen, pizzaMenuScreen, checkOutMenuScreen;
 //other variables
@@ -12,10 +12,13 @@ let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu, actHaPizz
 let userArrays = [];
 //favorites images variables
 let haPizzaFa, chiPizzaFa,vegePizzaFa, euPizzaFa;
+//car images variables & activate
+let vegCar, chCar, euCar, hawCar;
+let actVeg, actCh, actEu, actHaw;
 
 function setup(){
     createCanvas (400,812);
-    screen = "home";
+    screen = "login";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -48,6 +51,14 @@ function setup(){
     chiPizzaFa = loadImage("./src/images/chiPizzaFa.png");
     vegePizzaFa = loadImage("./src/images/vegePizzaFa.png");
     euPizzaFa = loadImage("./src/images/euPizzaFa.png");
+
+    //car images & activation
+    vegCar =loadImage("./src/images/VegCar.png");
+    chCar=loadImage("./src/images/ChCar.png");
+    euCar=loadImage("./src/images/EuCar.png");
+    hawCar=loadImage("./src/images/HawCar.png");
+    
+
 
 }
 
@@ -132,6 +143,20 @@ function draw(){
         case "tuCarrito":
             tuCarritoScreen.drawTuCarritoScreen();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           if(actCh){ image(chCar,10,120,300,120);
+            text(chiPizzaScreen.total,210,160)
+           }
+            if(actHaw){image(hawCar,10,250,300,120);
+            text(haPizzaScreen.total,230,290)
+            }
+            if(actEu){
+            image(euCar,10,380,300,120);
+            text(euPizzaScreen.total,230,425)
+            }
+            if(actVeg){
+            image(vegCar,10,510,300,120);
+            text(vegePizzaScreen.total,230,555)
+            }
 
         break;
         case "tuCarritoMenu":
@@ -814,15 +839,19 @@ function mouseReleased(){
     //add to car buttom
     if(screen === "haPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego hawaina");
+    actHaw = true;
     }
     if(screen === "chiPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego chicken");
+    actCh = true;
     }
     if(screen === "vegePizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego vegetariana");
+    actVeg = true;
     }
     if(screen === "euPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego europea");
+    actEu = true;
     }
     //clean buttom
     if(screen === "recents" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){

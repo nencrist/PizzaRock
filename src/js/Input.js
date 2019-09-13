@@ -44,4 +44,16 @@ class Input {
     setText(text){
         this.text = text;
     }
+    muestraContra(){
+        let asterisco="";
+        for (let i=0;i<this.text.length; i++){
+            asterisco+= "*"
+        }
+        fill(255)
+        rect(this.posX,this.posY, 200, 30, 10);
+        fill(0);
+        textSize(16);
+        text(asterisco, this.posX + 10, this.posY + 20);
+        
+    }
 }

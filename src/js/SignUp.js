@@ -27,7 +27,13 @@ class SingUp{
 //inputs
 
         for (let i = 0; i < arrayInputsR.length; i++) {
-            arrayInputsR[i].paint();
+          arrayInputsR[0].paint();
+          arrayInputsR[1].muestraContra();
+          arrayInputsR[2].muestraContra();
+          arrayInputsR[3].paint();
+          arrayInputsR[4].paint();
+
+
         }
 
     }

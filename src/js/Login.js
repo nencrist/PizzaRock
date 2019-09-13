@@ -24,7 +24,8 @@ class Login {
         
         //inputs
         for (let i = 0; i < arrayInputs.length; i++) {
-          arrayInputs[i].paint();
+          arrayInputs[0].paint();
+          arrayInputs[1].muestraContra();
       }
     
     }

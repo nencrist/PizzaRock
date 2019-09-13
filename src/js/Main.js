@@ -322,63 +322,7 @@ function draw(){
             haPizzaScreen.total+=5400;
         }
     }
-    //mouseClicked interactions on chiPizzaScreen
-    if(screen === "chiPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        screen = "favorites";
-    }
-    if(screen === "chiPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        screen = "search";
-    }
-    if(screen === "chiPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        screen = "recents";
-    }
-    if(screen === "chiPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        screen = "tuCarrito";
-    }
-    if(screen === "chiPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
-        screen = "home";
-    }
-    if(screen === "chiPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        actChiPizzaMenu = true;
-    }
-    //mouseClicked interactions on vegePizzaScreen
-    if(screen === "vegePizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        screen = "favorites";
-    }
-    if(screen === "vegePizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        screen = "search";
-    }
-    if(screen === "vegePizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        screen = "recents";
-    }
-    if(screen === "vegePizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        screen = "tuCarrito";
-    }
-    if(screen === "vegePizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
-        screen = "home";
-    }
-    if(screen === "vegePizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        actVegePizzaMenu = true;
-    }
-    //mouseClicked interactions on euPizzaScreen
-    if(screen === "euPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        screen = "favorites";
-    }
-    if(screen === "euPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        screen = "search";
-    }
-    if(screen === "euPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        screen = "recents";
-    }
-    if(screen === "euPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
-        screen = "tuCarrito";
-    }
-    if(screen === "euPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
-        screen = "home";
-    }
-    if(screen === "euPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        actEuPizzaMenu = true;
-    }
+    
     //mouseClicked interactions on PizzaMenu screens
     if(screen === "haPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
         actHaPizzaMenu = false;
@@ -393,26 +337,7 @@ function draw(){
         actEuPizzaMenu = false;
     }
     
-    //mouseClicked interactions on tuCarritoScreen
-    if(screen === "tuCarrito" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
-        screen = "favorites";
-    }
-    if(screen === "tuCarrito" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
-        screen = "search";
-    }
-    if(screen === "tuCarrito" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
-        screen = "recents";
-    }
-    if(screen === "tuCarrito" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
-        screen = "home";
-    }
-    if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
-        screen = "tuCarritoMenu";
-    }
-    //mouseClicked interactions on tuCarrito menu screen
-    if(screen === "tuCarritoMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
-        screen = "tuCarrito";
-    }
+    
     
 
 
@@ -487,6 +412,84 @@ function mouseReleased(){
     if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 597 && mouseY < 740){
         screen = "euPizza";
     }
+    //mouseClicked interactions on tuCarritoScreen
+    if(screen === "tuCarrito" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "tuCarrito" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "tuCarrito" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "tuCarrito" && mouseX > 34 && mouseX < 68 && mouseY > 761 && mouseY < 790){
+        screen = "home";
+    }
+    if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        screen = "tuCarritoMenu";
+    }
+    //mouseClicked interactions on tuCarrito menu screen
+    if(screen === "tuCarritoMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "tuCarrito";
+    }
+    //mouseClicked interactions on chiPizzaScreen
+    if(screen === "chiPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "chiPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "chiPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "chiPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "chiPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    if(screen === "chiPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actChiPizzaMenu = true;
+    }
+    //mouseClicked interactions on vegePizzaScreen
+    if(screen === "vegePizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "vegePizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "vegePizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "vegePizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "vegePizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    if(screen === "vegePizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actVegePizzaMenu = true;
+    }
+    //mouseClicked interactions on euPizzaScreen
+    if(screen === "euPizza" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "euPizza" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "euPizza" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "euPizza" && mouseX > 304 && mouseX < 335 && mouseY > 28 && mouseY < 60){
+        screen = "tuCarrito";
+    }
+    if(screen === "euPizza" && mouseX > 22 && mouseX < 39 && mouseY > 715 && mouseY < 731){
+        screen = "home";
+    }
+    if(screen === "euPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        actEuPizzaMenu = true;
+    }
+    
 
     
 }

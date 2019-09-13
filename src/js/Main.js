@@ -1,5 +1,6 @@
 //screen variables
-let screen, loginScreen, homeScreen, searchScreen1, registerScreen, menuScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen;
+let screen, loginScreen, homeScreen, searchScreen1, registerScreen, favoritesScreen, recentsScreen, tuCarritoScreen, haPizzaScreen, chiPizzaScreen, vegePizzaScreen, euPizzaScreen, checkOutScreen1, checkOutScreen2, adressScreen, addAdressScreen, cancelOrderScreen, cardScreen;
+let homeMenuScreen, searchMenuScreen, favoritesMenuScreen, recentsMenuScreen, tuCarritoMenuScreen, pizzaMenuScreen, checkOutMenuScreen;
 //other variables
 let drawSignUpLine, drawForgotMyPassWordLine, drawChiAddEllipse, drawCheAddEllipse, drawBaAddEllipse, drawCoAddEllipse, drawBoAddEllipse, drawCocaAddEllipse, drawTeLemonAddEllipse, drawTePeaAddEllipse;
 //on off variables
@@ -7,7 +8,7 @@ let actChiPizzaMenu, actEuPizzaMenu, actHaPizzaMenu, actVegePizzaMenu;
 
 function setup(){
     createCanvas (375,812);
-    screen = "haPizza";
+    screen = "home";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -17,6 +18,8 @@ function setup(){
     favoritesMenuScreen = new FavoritesMenu();
     searchMenuScreen = new SearchMenu();
     pizzaMenuScreen = new PizzaMenu();
+    checkOutScreen1 = new CheckOut1();
+    checkOutScreen2 = new CheckOut2();
     checkOutMenuScreen = new CheckOutMenu();
     tuCarritoMenuScreen = new TuCarritoMenu();
     favoritesScreen = new Favorites();
@@ -26,6 +29,10 @@ function setup(){
     chiPizzaScreen = new ChiPizza();
     vegePizzaScreen = new VegePizza();
     euPizzaScreen = new EuPizza();
+    adressScreen = new AdressScreen();
+    addAdressScreen = new AddAdress();
+    cancelOrderScreen = new CancelOrder();
+    cardScreen = new CardScreen();
 
 }
 
@@ -90,6 +97,33 @@ function draw(){
         break;
         case "tuCarritoMenu":
             tuCarritoMenuScreen.drawTuCarritoMenuScreen();
+        break;
+        case "checkOut1":
+            checkOutScreen1.drawCheckOutScreen1();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "checkOut2":
+            checkOutScreen2.drawCheckOutScreen2();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "checkOutMenu":
+            checkOutMenuScreen.drawCheckOutMenuScreen();
+        break;
+        case "adressScreen":
+            adressScreen.drawAdressScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "addAdress":
+            addAdressScreen.drawAddAdressScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "cancelOrder":
+            cancelOrderScreen.drawCancelOrderScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+        break;
+        case "cardScreen":
+            cardScreen.drawCardScreen();
+            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
@@ -199,10 +233,6 @@ function draw(){
     if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 261 && mouseY < 418){
         screen = "chiPizza";
     }
-    /*if(screen === "home" && mouseX > 10 && mouseX < 345 && mouseY > 430 && mouseY < 586){
-        console.log("register")
-        screen = "vegePizza";
-    }*/
     //mouseClicked interactions on home menu screen
     if(screen === "homeMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
         screen = "home";
@@ -323,24 +353,6 @@ function draw(){
         }
     }
     
-    //mouseClicked interactions on PizzaMenu screens
-    if(screen === "haPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
-        actHaPizzaMenu = false;
-    }
-    if(screen === "chiPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
-        actChiPizzaMenu = false;
-    }
-    if(screen === "vegePizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
-        actVegePizzaMenu = false;
-    }
-    if(screen === "euPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
-        actEuPizzaMenu = false;
-    }
-    
-    
-    
-
-
 function mouseMoved(){
     if(screen === "login" && mouseX > 150 && mouseX < 222 && mouseY > 705 && mouseY < 715){
         drawSignUpLine = true;
@@ -402,6 +414,7 @@ if(screen==="search"){
     searchScreen1.focusInputs(mouseX,mouseY);
 }
 
+
 }
 function mouseReleased(){
 
@@ -427,6 +440,10 @@ function mouseReleased(){
     }
     if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         screen = "tuCarritoMenu";
+    }
+    //checkout buttom (tuCarrito)
+    if(screen === "tuCarrito" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){
+        screen = "checkOut1";
     }
     //mouseClicked interactions on tuCarrito menu screen
     if(screen === "tuCarritoMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
@@ -489,7 +506,82 @@ function mouseReleased(){
     if(screen === "euPizza" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         actEuPizzaMenu = true;
     }
+        //mouseClicked interactions on PizzaMenu screens
+        if(screen === "haPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+            actHaPizzaMenu = false;
+        }
+        if(screen === "chiPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+            actChiPizzaMenu = false;
+        }
+        if(screen === "vegePizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+            actVegePizzaMenu = false;
+        }
+        if(screen === "euPizza" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+            actEuPizzaMenu = false;
+        }
+    //add to car buttom
+    if(screen === "haPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
+    console.log("agrego hawaina");
+    }
+    if(screen === "chiPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
+    console.log("agrego chicken");
+    }
+    if(screen === "vegePizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
+    console.log("agrego vegetariana");
+    }
+    if(screen === "euPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
+    console.log("agrego europea");
+    }
+    //clean buttom
+    if(screen === "recents" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){
+        console.log("se vacio el historial");
+    }
+    //mouseClicked interactions Checkout Screen
+    if(screen === "checkOut1" && mouseX > 131 && mouseX < 164 && mouseY > 763 && mouseY < 790){
+        screen = "favorites";
+    }
+    if(screen === "checkOut1" && mouseX > 306 && mouseX < 335 && mouseY > 762 && mouseY < 790){
+        screen = "search";
+    }
+    if(screen === "checkOut1" && mouseX > 220 && mouseX < 250 && mouseY > 760 && mouseY < 790){
+        screen = "recents";
+    }
+    if(screen === "checkOut1" && mouseX > 37 && mouseX < 62 && mouseY > 760 && mouseY < 787){
+        screen = "home";
+    }
+    if(screen === "checkOut1" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
+        screen = "checkOutMenu";
+    }
+    if(screen === "checkOut1" && mouseX > 40 && mouseX < 58 && mouseY > 692 && mouseY < 710){
+        screen = "tuCarrito";
+    }
+    if(screen === "checkOut1" && mouseX > 177 && mouseX < 329 && mouseY > 686 && mouseY < 716){
+        screen = "checkOut2";
+    }
+    if(screen === "checkOut1" && mouseX > 115 && mouseX < 258 && mouseY > 606 && mouseY < 627){
     
+    }
+    //mouseclicked interactions on checkout menu Screen
+    if(screen === "checkOutMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
+        screen = "checkOut1";
+    }
+    //mouseClicked interactions on checkout screen 2
+    if(screen === "checkOut2" && mouseX > 25 && mouseX < 52 && mouseY > 27 && mouseY < 57){
+        screen = "checkOut1";
+    }
+    if(screen === "checkOut2" && mouseX > 38 && mouseX < 160 && mouseY > 756 && mouseY < 789){
+        screen = "cancelOrder";
+    }
+    if(screen === "checkOut2" && mouseX > 230 && mouseX < 340 && mouseY > 756 && mouseY < 789){
+        screen = "onWay";
+    }
+    //mouseClicked interactions on cancel order screen
+    if(screen === "cancelOrder" && mouseX > 67 && mouseX < 153 && mouseY > 343 && mouseY < 371){
+        screen = "home";
+    }
+    if(screen === "cancelOrder" && mouseX > 208 && mouseX < 294 && mouseY > 343 && mouseY < 371){
+        screen = "checkOut2";
+    }
 
     
 }

@@ -15,10 +15,12 @@ let haPizzaFa, chiPizzaFa,vegePizzaFa, euPizzaFa;
 //car images variables & activate
 let vegCar, chCar, euCar, hawCar;
 let actVeg, actCh, actEu, actHaw;
+//check images variables
+let checkHaw,checkCh, checkEu,checkVeg
 
 function setup(){
     createCanvas (400,812);
-    screen = "login";
+    screen = "tuCarrito";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -57,6 +59,12 @@ function setup(){
     chCar=loadImage("./src/images/ChCar.png");
     euCar=loadImage("./src/images/EuCar.png");
     hawCar=loadImage("./src/images/HawCar.png");
+
+    //check images
+    checkCh=loadImage("./src/images/checkChi.png")
+    checkHaw=loadImage("./src/images/checkHaw.png")
+    checkEu=loadImage("./src/images/checkEu.png")
+    checkVeg=loadImage("./src/images/checkVeg.png")
     
 
 
@@ -165,10 +173,40 @@ function draw(){
         case "checkOut1":
             checkOutScreen1.drawCheckOutScreen1();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            if(actCh){ image(checkCh,0,0,400,812);
+                text(chiPizzaScreen.total,140,150)
+               }
+                if(actHaw){image(checkHaw,0,0,400,812);
+                text(haPizzaScreen.total,140,150)
+                }
+                if(actEu){
+                image(checkEu,0,0,400,812);
+                text(euPizzaScreen.total,140,150)
+                }
+                if(actVeg){
+                image(checkVeg,0,0,400,812);
+                text(vegePizzaScreen.total,140,150)
+                }
+
+            
         break;
         case "checkOut2":
             checkOutScreen2.drawCheckOutScreen2();
             text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            if(actCh){ 
+                text(chiPizzaScreen.total,150,626)
+               }
+                if(actHaw){
+                text(haPizzaScreen.total,150,626)
+                }
+                if(actEu){
+             
+                text(euPizzaScreen.total,150,626)
+                }
+                if(actVeg){
+               
+                text(vegePizzaScreen.total,150,626)
+                }
         break;
         case "checkOutMenu":
             checkOutMenuScreen.drawCheckOutMenuScreen();
@@ -668,6 +706,10 @@ function draw(){
                 drawTePeaAddEllipse3 = true;
                 euPizzaScreen.total+=5400;
             }
+             //checkout buttom (tuCarrito)
+    if(screen === "tuCarrito" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){
+        screen = "checkOut1";
+    }
     }
     
 function mouseMoved(){
@@ -732,6 +774,7 @@ if(screen==="search"){
 }
 
 
+
 }
 function mouseReleased(){
 
@@ -758,10 +801,7 @@ function mouseReleased(){
     if(screen === "tuCarrito" && mouseX > 42 && mouseX < 75 && mouseY > 30 && mouseY < 53){
         screen = "tuCarritoMenu";
     }
-    //checkout buttom (tuCarrito)
-    if(screen === "tuCarrito" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){
-        screen = "checkOut1";
-    }
+   
     //mouseClicked interactions on tuCarrito menu screen
     if(screen === "tuCarritoMenu" && mouseX > 344 && mouseX < 356 && mouseY > 278 && mouseY < 298){
         screen = "tuCarrito";
@@ -840,18 +880,22 @@ function mouseReleased(){
     if(screen === "haPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego hawaina");
     actHaw = true;
+    screen="tuCarrito"
     }
     if(screen === "chiPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego chicken");
     actCh = true;
+    screen="tuCarrito"
     }
     if(screen === "vegePizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego vegetariana");
     actVeg = true;
+    screen="tuCarrito"
     }
     if(screen === "euPizza" && mouseX > 106 && mouseX < 267 && mouseY > 570 && mouseY < 596){
     console.log("agrego europea");
     actEu = true;
+    screen="tuCarrito"
     }
     //clean buttom
     if(screen === "recents" && mouseX > 43 && mouseX < 327 && mouseY > 704 && mouseY < 734){

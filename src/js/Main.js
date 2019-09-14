@@ -20,7 +20,7 @@ let checkHaw,checkCh, checkEu,checkVeg
 
 function setup(){
     createCanvas (400,812);
-    screen = "tuCarrito";
+    screen = "login";
     loginScreen = new Login();
     homeScreen = new Home();
     searchScreen1 = new Search();
@@ -84,16 +84,16 @@ function draw(){
                 fill(0);
                 line (124,800,247,800);
             }
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "signUp":
             registerScreen.drawRegisterScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
             console.log(userArrays.length)
         break;
         case "search":
             searchScreen1.drawSearchScreen1();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+          //  text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
 
         break;
         case "searchMenu":
@@ -101,7 +101,7 @@ function draw(){
         break;
         case "home":
             homeScreen.drawHomeScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
             if(actHaPizzaFa){
             image(haPizzaFa,9,98,356,157);
             }
@@ -150,7 +150,7 @@ function draw(){
         break;
         case "tuCarrito":
             tuCarritoScreen.drawTuCarritoScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
            if(actCh){ image(chCar,10,120,300,120);
             text(chiPizzaScreen.total,210,160)
            }
@@ -172,7 +172,7 @@ function draw(){
         break;
         case "checkOut1":
             checkOutScreen1.drawCheckOutScreen1();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            //text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
             if(actCh){ image(checkCh,0,0,400,812);
                 text(chiPizzaScreen.total,140,150)
                }
@@ -192,7 +192,7 @@ function draw(){
         break;
         case "checkOut2":
             checkOutScreen2.drawCheckOutScreen2();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+            //text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
             if(actCh){ 
                 text(chiPizzaScreen.total,150,626)
                }
@@ -213,19 +213,19 @@ function draw(){
         break;
         case "adressScreen":
             adressScreen.drawAdressScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "addAdress":
             addAdressScreen.drawAddAdressScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "cancelOrder":
             cancelOrderScreen.drawCancelOrderScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "cardScreen":
             cardScreen.drawCardScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
         break;
         case "addCardScreen":
             addCardScreen.drawAddCardScreen();
@@ -235,7 +235,7 @@ function draw(){
         break;
         case "haPizza":
             haPizzaScreen.drawHaPizzaScreen();
-            text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
+           // text("X: "+mouseX+" Y: "+mouseY,mouseX,mouseY );
             if(drawChiAddEllipse){
                 fill(1,198,85);
                 noStroke ();
